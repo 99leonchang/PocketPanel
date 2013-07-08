@@ -1,15 +1,5 @@
 <? require_once($_SERVER['DOCUMENT_ROOT']."/navbar.php"); ?>
-<? require_once($_SERVER['DOCUMENT_ROOT']."/MinecraftUtils.php"); ?>
 
-<?
-
-$MinecraftUtils = new MinecraftUtils();
-if(!($MinecraftUtils instanceof MinecraftUtils))
-{
-	echo $MinecraftUtils;
-	exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,7 +21,7 @@ if(!($MinecraftUtils instanceof MinecraftUtils))
       }
       html {
        overflow-y: scroll;
-	}
+}
     </style>
     <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -57,8 +47,9 @@ if(!($MinecraftUtils instanceof MinecraftUtils))
                     	<div class="span6">
                         	<h1>PocketPanel</h1>
                         </div>
-                        <div class="span4 offset2" style="margin-top:15px;">
-                          <button type="button" class="btn pull-right">Sign In</button>							
+                        <div class="span4 offset2" style="margin-top:15px;">	
+                          <button type="button" class="btn pull-right">Log Out</button>	
+                            <button type="button" class="btn pull-right">IP: 127.0.0.1 Port: 19132</button>							
                         </div>
                     </div>
                 </div>                	
@@ -73,36 +64,21 @@ if(!($MinecraftUtils instanceof MinecraftUtils))
 				</div>
 	</div>
 
-     <!--<div class="row">
+     <div class="row">
 		<div class="span4 offset4 well">
 			<legend>Sign In to PocketPanel</legend>
-          	<div class="alert alert-error">
+          	<!--<div class="alert alert-error">
                 <a class="close" data-dismiss="alert" href="#">×</a>Incorrect Username or Password!
-            </div>
+            </div>-->
 			<form method="POST" action="" accept-charset="UTF-8">
-			<input type="text" id="username" class="span4" name="username" placeholder="Username">
-			<input type="password" id="password" class="span4" name="password" placeholder="Password">
-			<button type="submit" name="submit" class="btn btn-info btn-block">Sign in</button>
+			<input type="text" id="IP" class="span4" name="IP" placeholder="IP">
+			<input type="password" id="password" class="span4" name="password" placeholder="RCON Password">
+			<button type="submit" name="submit" class="btn btn-info btn-block">Authenticate</button>
 			</form>    
 		</div>
-	</div>-->
+	</div>
 	
-	<div class='row-fluid'>
-		<div class='span4 well'>
-		<h4>Server Status</h4>
-			TPS:
-			<div class="progress progress-striped progress-<? echo $MinecraftUtils->parseScale('tps', $MinecraftUtils->status()['TPS']); ?>">
-		  		<div class="bar" style="width: <? echo $MinecraftUtils->status()['TPS']/20*100 ?>%"></div>
-			</div>
-			RAM:
-			<div class="progress progress-striped progress-warning">
-		  		<div class="bar" style="width: 40%"></div>
-			</div>
-		</div>
-		<div class='span8 well'>
-		Nothing here to display.
-		</div>
-	</div><!--row-fluid-->
+	
 
 	<? require_once($_SERVER['DOCUMENT_ROOT']."/footer.php"); ?>
     </div> <!-- /container -->
